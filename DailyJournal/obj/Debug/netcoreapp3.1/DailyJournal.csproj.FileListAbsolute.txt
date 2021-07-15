@@ -1,0 +1,13 @@
+C:\Users\konar\source\repos\DailyJournalSln\DailyJournal\obj\Debug\netcoreapp3.1\DailyJournal.AssemblyInfoInputs.cache
+C:\Users\konar\source\repos\DailyJournalSln\DailyJournal\obj\Debug\netcoreapp3.1\DailyJournal.AssemblyInfo.cs
+C:\Users\konar\source\repos\DailyJournalSln\DailyJournal\obj\Debug\netcoreapp3.1\DailyJournal.csproj.CoreCompileInputs.cache
+C:\Users\konar\source\repos\DailyJournalSln\DailyJournal\bin\Debug\netcoreapp3.1\DailyJournal.exe
+C:\Users\konar\source\repos\DailyJournalSln\DailyJournal\bin\Debug\netcoreapp3.1\DailyJournal.deps.json
+C:\Users\konar\source\repos\DailyJournalSln\DailyJournal\bin\Debug\netcoreapp3.1\DailyJournal.runtimeconfig.json
+C:\Users\konar\source\repos\DailyJournalSln\DailyJournal\bin\Debug\netcoreapp3.1\DailyJournal.runtimeconfig.dev.json
+C:\Users\konar\source\repos\DailyJournalSln\DailyJournal\bin\Debug\netcoreapp3.1\DailyJournal.dll
+C:\Users\konar\source\repos\DailyJournalSln\DailyJournal\bin\Debug\netcoreapp3.1\DailyJournal.pdb
+C:\Users\konar\source\repos\DailyJournalSln\DailyJournal\obj\Debug\netcoreapp3.1\DailyJournal.csproj.AssemblyReference.cache
+C:\Users\konar\source\repos\DailyJournalSln\DailyJournal\obj\Debug\netcoreapp3.1\DailyJournal.dll
+C:\Users\konar\source\repos\DailyJournalSln\DailyJournal\obj\Debug\netcoreapp3.1\DailyJournal.pdb
+C:\Users\konar\source\repos\DailyJournalSln\DailyJournal\obj\Debug\netcoreapp3.1\DailyJournal.genruntimeconfig.cache
