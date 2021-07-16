@@ -88,30 +88,25 @@ namespace ConsoleTables
         {
             var builder = new StringBuilder();
 
-            // find the longest column by searching each row
             var columnLengths = ColumnLengths();
 
-            // set right alinment if is a number
             var columnAlignment = Enumerable.Range(0, Columns.Count)
+
                 .Select(GetNumberAlignment)
                 .ToList();
 
-            // create the string format with padding
             var format = Enumerable.Range(0, Columns.Count)
                 .Select(i => " | {" + i + "," + columnAlignment[i] + columnLengths[i] + "}")
                 .Aggregate((s, a) => s + a) + " |";
 
-            // find the longest formatted line
             var maxRowLength = Math.Max(0, Rows.Any() ? Rows.Max(row => string.Format(format, row).Length) : 0);
+
             var columnHeaders = string.Format(format, Columns.ToArray());
 
-            // longest line is greater of formatted columnHeader and longest row
             var longestLine = Math.Max(maxRowLength, columnHeaders.Length);
 
-            // add each row
             var results = Rows.Select(row => string.Format(format, row)).ToList();
 
-            // create the divider
             var divider = " " + string.Join("", Enumerable.Repeat("-", longestLine - 1)) + " ";
 
             builder.AppendLine(divider);
@@ -143,19 +138,14 @@ namespace ConsoleTables
         {
             var builder = new StringBuilder();
 
-            // find the longest column by searching each row
             var columnLengths = ColumnLengths();
 
-            // create the string format with padding
             var format = Format(columnLengths, delimiter);
 
-            // find the longest formatted line
             var columnHeaders = string.Format(format, Columns.ToArray());
 
-            // add each row
             var results = Rows.Select(row => string.Format(format, row)).ToList();
 
-            // create the divider
             var divider = Regex.Replace(columnHeaders, @"[^|]", "-");
 
             builder.AppendLine(columnHeaders);
@@ -174,19 +164,14 @@ namespace ConsoleTables
         {
             var builder = new StringBuilder();
 
-            // find the longest column by searching each row
             var columnLengths = ColumnLengths();
 
-            // create the string format with padding
             var format = Format(columnLengths);
 
-            // find the longest formatted line
             var columnHeaders = string.Format(format, Columns.ToArray());
 
-            // add each row
             var results = Rows.Select(row => string.Format(format, row)).ToList();
 
-            // create the divider
             var divider = Regex.Replace(columnHeaders, @"[^|]", "-");
             var dividerPlus = divider.Replace("|", "+");
 
@@ -205,7 +190,6 @@ namespace ConsoleTables
 
         private string Format(List<int> columnLengths, char delimiter = '|')
         {
-            // set right alinment if is a number
             var columnAlignment = Enumerable.Range(0, Columns.Count)
                 .Select(GetNumberAlignment)
                 .ToList();
@@ -279,14 +263,8 @@ namespace ConsoleTables
         public IEnumerable<string> Columns { get; set; } = new List<string>();
         public bool EnableCount { get; set; } = true;
 
-        /// <summary>
-        /// Enable only from a list of objects
-        /// </summary>
         public Alignment NumberAlignment { get; set; } = Alignment.Left;
 
-        /// <summary>
-        /// The <see cref="TextWriter"/> to write to. Defaults to <see cref="Console.Out"/>.
-        /// </summary>
         public TextWriter OutputTo { get; set; } = Console.Out;
     }
 
