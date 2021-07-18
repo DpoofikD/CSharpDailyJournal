@@ -12,7 +12,7 @@ Commads:
 
 Progress:
 1. Working with tables - Done!
-2. Simple commands (now, refresh, next, back) - Done!
+2. Simple commands - Done!
 3. Working with time - Done!
 4. Adding and saving notes by days - Done!
 
