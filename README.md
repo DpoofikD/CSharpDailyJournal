@@ -2,12 +2,13 @@
 Organize your tasks by days and monitor their progress!
 
 Commads:
+- add - adds a note on selected day
+- back - previous week
+- help - shows the list of commands
+- next - next week
 - now - shows current week
 - refresh - refreshes the time
-- next - next week
-- back - previous week
 - select - selecting the day to add/remove notes
-- add - adds a note on selected day
 
 Progress:
 1. Working with tables - Done!
