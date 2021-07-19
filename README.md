@@ -2,7 +2,7 @@
 Organize your tasks by days and monitor their progress!
 
 Commads:
-- add - adds a note on selected day
+- add - adds a note on selected day (For now, you can only make only 1 note for each day. This will be fixed soon)
 - back - previous week
 - help - shows the list of commands
 - next - next week
