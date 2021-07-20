@@ -7,8 +7,9 @@ Commads:
 - help - shows the list of commands
 - next - next week
 - now - shows current week
-- refresh - refreshes the time
+- refresh - refreshes the time and clears the console
 - select - selecting the day to add/remove notes
+- show - shows the list for selected date
 
 Progress:
 1. Working with tables - Done!
