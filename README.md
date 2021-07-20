@@ -1,4 +1,4 @@
-# CSharpDailyJournal
+# CSharpDailyJournal [Alfa]
 Organize your tasks by days and monitor their progress!
 
 Commads:
