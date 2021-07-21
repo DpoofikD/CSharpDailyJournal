@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using ConsoleTables;
 using Newtonsoft.Json;
 
@@ -12,9 +13,9 @@ namespace DailyJournal
 
         static void Main(string[] args)
         {
-            var CurTime = DateTime.Now;
-            var NewTime = DateTime.Now;
-            var Actions = new Dictionary<string, string>();
+            DateTime CurTime = DateTime.Now;
+            DateTime NewTime = DateTime.Now;
+            Dictionary<string, List<string>> Actions = new Dictionary<string, List<string>>();
 
             string[] Week = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
@@ -23,12 +24,12 @@ namespace DailyJournal
 
             if (File.Exists("djournal.json"))
             {
-                Actions = JsonConvert.DeserializeObject<Dictionary<string, string>>
+                Actions = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>
                     (File.ReadAllText("djournal.json"));
             }
             else
             {
-                Actions = new Dictionary<string, string>();
+                Actions = new Dictionary<string, List<string>>();
                 File.WriteAllText("djournal.json", JsonConvert.SerializeObject(Actions));
             }
 
@@ -69,13 +70,14 @@ namespace DailyJournal
 
                             if(Actions.ContainsKey(SelectedDate))
                             {
-                                Actions[SelectedDate] += "\n" + ActDesc;
+                                Actions[SelectedDate].Add(ActDesc);
                             }
                             else
                             {
-                                Actions.Add(SelectedDate, ActDesc);
+                                List<string> SelectedDateActions = new List<string>();
+                                SelectedDateActions.Add(ActDesc);
+                                Actions.Add(SelectedDate, SelectedDateActions);
                             }
-                            
 
                             File.WriteAllText("djournal.json", JsonConvert.SerializeObject(Actions));
                             
@@ -89,7 +91,12 @@ namespace DailyJournal
                         {
                             if (Actions.ContainsKey(SelectedDate))
                             {
-                                var SelActions = new ConsoleTable(Actions[SelectedDate]);
+                                var SelActions = new ConsoleTable("Notes");
+                                for(int i = 0; i < Actions[SelectedDate].Count(); i++)
+                                {
+                                    SelActions.AddRow(Actions[SelectedDate][i]);
+                                }
+
                                 SelActions.Write(Format.Alternative);
                             }
                             else
