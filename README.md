@@ -9,7 +9,7 @@ Commads:
 - now - shows current week
 - refresh - refreshes the time and clears the console
 - select - selecting the day to add/remove notes
-- show - shows the list of notes for selected date
+- show - shows the table of notes for selected date
 
 Progress:
 1. Working with tables - Done!
