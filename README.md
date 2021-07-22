@@ -17,7 +17,7 @@ Progress:
 3. Working with time - Done!
 4. Adding and saving notes by days - Done!
 5. Getting list of notes for each day - Done!
-6. Showing currently selected date
+6. Showing currently selected date - Done!
 
 To do:
 1. Colorful text
