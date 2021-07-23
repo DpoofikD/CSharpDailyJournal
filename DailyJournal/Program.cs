@@ -10,6 +10,7 @@ namespace DailyJournal
     class Journal
     {
         public static string[] WeekD = new string[7];
+        public static string SelectedDate = null;
 
         static void Main(string[] args)
         {
@@ -19,7 +20,7 @@ namespace DailyJournal
 
             string[] Week = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
-            string WDay = CurTime.DayOfWeek.ToString(), SelectedDate = null;
+            string WDay = CurTime.DayOfWeek.ToString();
             short WDayNum = Convert.ToInt16(Array.IndexOf(Week, WDay));
 
             if (File.Exists("djournal.json"))
@@ -133,6 +134,11 @@ namespace DailyJournal
             var NewTime = CurTime;
 
             Console.WriteLine("Current date is: " + String.Format("{0:dd.MM.yyyy}", DateTime.Now) + ", " + CurTime.DayOfWeek.ToString());
+            if (!(string.IsNullOrEmpty(SelectedDate)))
+            {
+                Console.WriteLine("Selected date is: " + SelectedDate);
+            }
+
             Console.WriteLine();
 
             for(int i = 0; i < 7; i++)
