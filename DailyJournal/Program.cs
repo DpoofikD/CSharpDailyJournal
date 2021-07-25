@@ -92,6 +92,8 @@ namespace DailyJournal
                         {
                             if (Actions.ContainsKey(SelectedDate))
                             {
+                                DefaultTable(CurTime, WDayNum);
+                                Console.WriteLine();
                                 var SelActions = new ConsoleTable("Notes");
                                 for(int i = 0; i < Actions[SelectedDate].Count(); i++)
                                 {
@@ -138,7 +140,10 @@ namespace DailyJournal
             {
                 Console.WriteLine("Selected date is: " + SelectedDate);
             }
-
+            else
+            {
+                Console.WriteLine("No currently selected date.");
+            }
             Console.WriteLine();
 
             for(int i = 0; i < 7; i++)
