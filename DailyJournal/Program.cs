@@ -58,7 +58,16 @@ namespace DailyJournal
                     case "select":
                         Console.WriteLine("Enter the date (dd.mm.yyyy):");
                         SelectedDate = Console.ReadLine();
-                        Console.WriteLine("Successfully selected!");
+                        if (SelectedDate.Length == 10
+                            && SelectedDate[2] == '.'
+                            && SelectedDate[5] == '.')
+                        {
+                            Console.WriteLine("Successfully selected!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Date wasn't selected: Incorrect date.");
+                        }
                         break;
                     case "add":
                         if (!(string.IsNullOrEmpty(SelectedDate)))
@@ -69,15 +78,22 @@ namespace DailyJournal
                             Console.WriteLine("Enter a small descryption:");
                             string ActDesc = ActTime + " - " + Console.ReadLine();
 
-                            if(Actions.ContainsKey(SelectedDate))
+                            if (ActTime[2] == ':')
                             {
-                                Actions[SelectedDate].Add(ActDesc);
+                                if(Actions.ContainsKey(SelectedDate))
+                                {
+                                    Actions[SelectedDate].Add(ActDesc);
+                                }
+                                else
+                                {
+                                    List<string> SelectedDateActions = new List<string>();
+                                    SelectedDateActions.Add(ActDesc);
+                                    Actions.Add(SelectedDate, SelectedDateActions);
+                                }
                             }
                             else
                             {
-                                List<string> SelectedDateActions = new List<string>();
-                                SelectedDateActions.Add(ActDesc);
-                                Actions.Add(SelectedDate, SelectedDateActions);
+                                Console.WriteLine("Note wasn't saved: Incorrect time.");
                             }
 
                             File.WriteAllText("djournal.json", JsonConvert.SerializeObject(Actions));
