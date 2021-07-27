@@ -20,6 +20,5 @@ Progress:
 6. Showing currently selected date - Done!
 
 To do:
-1. Colorful text
-2. Adding alarm clock
-3. Adding hotkeys
+1. Adding alarm clock
+2. Adding hotkeys
