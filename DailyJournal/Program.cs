@@ -52,12 +52,14 @@ namespace DailyJournal
                         DefaultTable(DateTime.Now, WDayNum);
                         break;
                     case "refresh":
-                        CurTime = DateTime.Now;
+                        WDay = CurTime.DayOfWeek.ToString();
+                        WDayNum = Convert.ToInt16(Array.IndexOf(Week, WDay));
                         DefaultTable(DateTime.Now, WDayNum);
                         break;
                     case "select":
                         Console.WriteLine("Enter the date (dd.mm.yyyy):");
                         SelectedDate = Console.ReadLine();
+                        DefaultTable(DateTime.Now, WDayNum);
                         if (SelectedDate.Length == 10
                             && SelectedDate[2] == '.'
                             && SelectedDate[5] == '.')
@@ -77,6 +79,8 @@ namespace DailyJournal
 
                             Console.WriteLine("Enter a small descryption:");
                             string ActDesc = ActTime + " - " + Console.ReadLine();
+
+                            DefaultTable(DateTime.Now, WDayNum);
 
                             if (ActTime[2] == ':')
                             {
