@@ -26,12 +26,12 @@ namespace DailyJournal
             if (File.Exists("djournal.json"))
             {
                 Actions = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>
-                    (File.ReadAllText("djournal.json"));
+                    (File.ReadAllText("djournal.json")); // reading Actions from JSON if it exists
             }
             else
             {
                 Actions = new Dictionary<string, List<string>>();
-                File.WriteAllText("djournal.json", JsonConvert.SerializeObject(Actions));
+                File.WriteAllText("djournal.json", JsonConvert.SerializeObject(Actions)); // writing down a JSON file if it does not exist
             }
 
             DefaultTable(CurTime, WDayNum);
@@ -166,14 +166,14 @@ namespace DailyJournal
             }
             Console.WriteLine();
 
-            for(int i = 0; i < 7; i++)
+            for(int i = 0; i < 7; i++) // parsing dates of days of week
             {
                 NewTime = CurTime.AddDays(i - WDayNum);
                 WeekD[i] = String.Format("{0:dd.MM.yyyy}", NewTime);
             }
 
             var tableD = new ConsoleTable("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
-            tableD.AddRow(WeekD[0], WeekD[1], WeekD[2], WeekD[3], WeekD[4], WeekD[5], WeekD[6]);
+            tableD.AddRow(WeekD[0], WeekD[1], WeekD[2], WeekD[3], WeekD[4], WeekD[5], WeekD[6]); // building seccond row with dates
 
             tableD.Write(Format.Alternative);
         }
