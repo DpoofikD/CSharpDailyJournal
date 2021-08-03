@@ -1,5 +1,5 @@
 # CSharpDailyJournal [Alfa]
-Organize your tasks by days and monitor their progress!
+Organize your tasks by days and monitor them!
 
 Commads:
 - add - adds a note on selected day
